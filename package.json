@@ -1,34 +1,39 @@
 {
-  "name": "scaffold-webpack",
+  "name": "img_render",
   "version": "0.0.1",
-  "description": "",
+  "description": "图片生成器",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack.js --config webpack.config.js",
     "lintfix": "./node_modules/eslint/bin/eslint.js --fix entries components",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "webpack-dev-server"
   },
   "author": "concefly@foxmail.com",
   "license": "MIT",
   "dependencies": {
     "bundle-loader": "^0.5.4",
+    "co": "^4.6.0",
     "css-loader": "^0.23.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.21.0",
+    "jquery": "^3.1.1",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "rasterizehtml": "^1.2.4",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
-    "webpack-dev-server": "^1.14.1"
+    "webpack-dev-server": "^1.14.1",
+    "zepto": "^1.2.0"
   },
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
-    "eslint": "^2.13.0"
+    "chai": "^3.5.0",
+    "eslint": "^2.13.0",
+    "mocha": "^3.2.0"
   }
 }

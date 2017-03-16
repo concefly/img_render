@@ -1,47 +1,46 @@
 
 // js
 // ---------------------------
-const render = require('../../libs/render');
-const Drawer = require('../../libs/drawer');
 
-const drawer = new Drawer(render);
+const $ = require('jquery');
+const render = require('../../index')();
 
-const defaultTpl = ['<div>',
-'  <h3><%= noteData.title %></h3>',
-'  <p><%= noteData.desc %></p>',
-'  <% if (noteData.images) { %>',
-'    <% noteData.images.forEach( function (img) { %>',
-'      <div><img style="max-width: 100%" src="<%= img %>" alt="读书截图" ></div>',
-'    <% }); %>',
-'  <% } %>',
-'  <% if (extraData) { %>',
-'    <img width="100" src="<%= extraData.qr %>" alt="公众号二维码">',
-'  <% } %>',
-'</div>'].join("");
-
-const defaultTpl2 = require('../../tpls/default.tpl');
-
-const noteData = {
-  title: '读书笔记',
-  desc: '芝士就是力量',
-  images: [
-    require('./images/1.jpg'),
-    require('./images/1.jpg'),
-    require('./images/1.jpg'),
-  ]
+const payloadSimple = {
+  persistDays: 3,
+  note: '读书笔记 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse cupiditate quaerat rerum optio, error similique, laborum quis adipisci porro quisquam repellendus minima culpa deleniti fuga obcaecati illum ipsum quas delectus.',
+  book: '金色故乡',
+  author: 'Jam',
+  date: '2017年3月15日',
+  imgs: [
+    require('./images/1.png'),
+    require('./images/1.png'),
+  ],
+  qr: require('./images/qr.jpg'),
+  brand: '下一页',
+  slogan: '下一页，更精彩'
 }
 
-const extraData = {
-  qr: require('./images/qr.jpg')
-}
+const payloadMissing = {}
 
-drawer.drawFromHTML(defaultTpl2, noteData, extraData)
-  .then(result => {
+render(payloadSimple, {
+  width: 320,
+  dpi: 2
+})
+  .then(dataURL => {
     const img = new Image();
-    img.src = result.imgData;
-    document.querySelector('#root').appendChild(img);
+    img.src = dataURL;
+    $('#img').append(img).append('<hr />');
   })
-  .catch(err => {
-    console.error(err);
-    document.querySelector('#err').innerHTML = err.toString();
+  .catch(e => console.error(e))
+
+
+render(payloadMissing, {
+  width: 320,
+  dpi: 1
+})
+  .then(dataURL => {
+    const img = new Image();
+    img.src = dataURL;
+    $('#img').append(img).append('<hr />');
   })
+  .catch(e => console.error(e))

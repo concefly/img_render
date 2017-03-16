@@ -20,7 +20,7 @@ module.exports = {
         test: /\.less$/,
         loader: ExtractTextPlugin.extract("style", "css", "less")
       },
-      { test: /\.(png|jpg)$/, loader: "url-loader?limit=1024" }
+      { test: /\.(png|jpg)$/, loader: "url-loader?limit=10240000000000000000000" }
     ]
   },
   resolve: {
