@@ -1,13 +1,14 @@
 {
   "name": "img_render",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "图片生成器",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack.js --config webpack.config.js",
     "lintfix": "./node_modules/eslint/bin/eslint.js --fix entries components",
-    "test": "webpack-dev-server"
+    "test": "webpack-dev-server",
+    "window-clear": "rd /s /q node_modules"
   },
   "author": "concefly@foxmail.com",
   "license": "MIT",
@@ -35,5 +36,7 @@
     "chai": "^3.5.0",
     "eslint": "^2.13.0",
     "mocha": "^3.2.0"
-  }
+  },
+  "_from": "img_render@1.0.0",
+  "_resolved": "http://registry.npm.taobao.org/img_render/download/img_render-1.0.0.tgz"
 }

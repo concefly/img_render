@@ -12,12 +12,12 @@ const payloadSimple = {
   author: 'Jam',
   date: '2017年3月15日',
   imgs: [
-    require('./images/1.png'),
-    require('./images/1.png'),
+    require('./images/2.jpg'),
+    require('./images/3.jpg'),
   ],
   qr: require('./images/qr.jpg'),
-  brand: '下一页',
-  slogan: '下一页，更精彩'
+  brand: '下一页读书',
+  slogan: '习惯读书，就是下一页'
 }
 
 const payloadMissing = {}

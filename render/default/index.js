@@ -10,8 +10,8 @@ const {
 
 const wingBlank = 12;
 const pl = pr = 10;
-const serif = 'SimSun';
-const sansSerif = 'Microsoft YaHei';
+const serif = 'serif';
+const sansSerif = 'sans-serif';
 
 /**
  * 绘制长图
@@ -59,23 +59,24 @@ function render(data, opts) {
     });
     
     drawer
+      .appendRow(new BlankRow({width: opts.width, height: wingBlank}))
       // 读 xx 书
       .appendRow(new TextRow(`读《${data.book}》`, {
         width: opts.width - wingBlank * 2,
-        padding: [20, pr, 10, pl],
+        padding: [pr, pr, 15, pl],
         fontFamliy: serif,
         fontColor: '#937644',
-        fontSize: 20,
+        fontSize: 18,
         background: '#FDF7EF',
         rowAlign: 'center'
       }))
       // 坚持读书第x天
       .appendRow(new TextRow(`这是我坚持读书的第 ${data.persistDays} 天`, {
         width: opts.width - wingBlank * 2,
-        padding: [0, pr, 30, pl],
-        fontFamliy: sansSerif,
+        padding: [0, pr, 50, pl],
+        fontFamliy: serif,
         fontColor: '#937644',
-        fontSize: 13,
+        fontSize: 12,
         background: '#FDF7EF',
         rowAlign: 'center'
       }))
@@ -97,7 +98,7 @@ function render(data, opts) {
           fontFamliy: sansSerif,
           fontColor: '#444444',
           fontSize: 16,
-          lineHeight: 16 * 1.5,
+          lineHeight: 1.5,
           background: 'transparent',
           rowAlign: 'center'
         }))
@@ -110,7 +111,7 @@ function render(data, opts) {
           return new ImgRow(img, {
             width: opts.width - wingBlank*2,
             rowAlign: 'center',
-            padding: [0,pr,5,pl],
+            padding: [0,0,5,0],
             rowAlign: 'center'
           })
         } catch (e) {
@@ -127,7 +128,7 @@ function render(data, opts) {
         // 二维码
         .appendRow(new ImgRow(qrImg, {
           width: 100,
-          padding: [40, pr, 10, pl],
+          padding: [15, pr, 10, pl],
           rowAlign: 'center'
         }))
     } catch (e) {
@@ -140,17 +141,17 @@ function render(data, opts) {
         width: opts.width - wingBlank*2,
         padding: [0, pr, 8, pl],
         fontFamliy: sansSerif,
-        fontColor: '#DFD2BE',
-        fontSize: 13,
+        fontColor: '#937644',
+        fontSize: 16,
         fontAlign: 'center',
         rowAlign: 'center'
       }))
       // slogan
       .appendRow(new TextRow(data.slogan, {
         width: opts.width - wingBlank*2,
-        padding: [0, pr, 40, pl],
+        padding: [0, pr, 20, pl],
         fontFamliy: sansSerif,
-        fontColor: '#DFD2BE',
+        fontColor: '#937644',
         fontSize: 13,
         fontAlign: 'center',
         rowAlign: 'center'
