@@ -22,10 +22,7 @@ const payloadSimple = {
 
 const payloadMissing = {}
 
-render(payloadSimple, {
-  width: 320,
-  dpi: 2
-})
+render(payloadSimple, {})
   .then(dataURL => {
     const img = new Image();
     img.src = dataURL;
@@ -34,10 +31,7 @@ render(payloadSimple, {
   .catch(e => console.error(e))
 
 
-render(payloadMissing, {
-  width: 320,
-  dpi: 1
-})
+render(payloadMissing, {})
   .then(dataURL => {
     const img = new Image();
     img.src = dataURL;

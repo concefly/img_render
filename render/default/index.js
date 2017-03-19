@@ -14,6 +14,24 @@ const serif = 'serif';
 const sansSerif = 'sans-serif';
 
 /**
+ * 返回屏幕宽度，默认320
+ * 
+ * @returns {number}
+ */
+function getScreenWidth() {
+  return window.innerWidth || 320;
+}
+
+/**
+ * 返回屏幕dpi，默认2
+ * 
+ * @returns {Number}
+ */
+function getDpi() {
+  return window.devicePixelRatio || 2;
+}
+
+/**
  * 绘制长图
  * 
  * @param {Object} data
@@ -27,8 +45,8 @@ const sansSerif = 'sans-serif';
  * @param {String} data.brand
  * @param {String} data.slogan
  * @param {Object} opts
- * @param {Number} [opts.width=320]
- * @param {Number} [opts.dpi=1]
+ * @param {Number} [opts.width=detected] - 不传入则自动检测
+ * @param {Number} [opts.dpi=detected] - 不传入则自动检测
  * @returns {Promise[String]} - dataURL
  */
 function render(data, opts) {
@@ -44,8 +62,8 @@ function render(data, opts) {
     slogan: '关于美、探索和创造'
   };
   const defaultOpts = {
-    width: 320,
-    dpi: 2
+    width: getScreenWidth(),
+    dpi: getDpi()
   };
   opts = Object.assign({}, defaultOpts, opts);
   data = Object.assign({}, defaultData, data);
